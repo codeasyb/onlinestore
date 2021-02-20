@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- BootStrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>{{ object.name }}</title>
+</head>
+
+<body class="container">
+
+    <h1>Using table and most basic to show data</h1>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Manfacturer</th>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Shipping Cost</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ object.manufacturer }}</td>
+                <td>{{ object.name }}</td>
+                <td>{{ object.quantity }}</td>
+                <td>{{ object.description }}</td>
+                <td>{{ object.price }}</td>
+                <td>{{ object.shipping_cost }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <img src="{{ object.photo.url }}" alt="{{ object.name }}">
+    <hr/>
+
+    <!-- Second way to show data -->
+    <div class="container">
+        <div class="row no-gutters">
+            <!-- Image position -->
+            <div class="col-md">
+                <div class="menu-image h-100 d-flex align-items-start">
+                    <img src="{{ object.photo.url }}" alt="{{ object.name }}" class="img-fluid">
+                </div>
+            </div>
+            <!-- End Image position -->
+            <div class="col-md">
+                <div class="menu-text flex-grow-1 py-4 px-5">
+                    <h2 class="main-title text-left">{{ object.manfacturer }}</h2>
+                    <hr class="hr-style-left" />
+                    <div class="menu-content d-flex justify-content-between">
+                        <p class="menu-name text-uppercase font-weight-bold">Product</p>
+                        {% comment %} <p class="menu-price">$200.00</p> {% endcomment %}
+                        <p class="menu-name text-uppercase font-weight-bold">{{ object.name }}</p>
+                    </div>
+
+                    <div class="menu-content d-flex justify-content-between">
+                        <p class="menu-name text-uppercase font-weight-bold">Quantity</p>
+                        <p class="menu-price">{{ object.quantity }}</p>
+                    </div>
+
+                    <div class="menu-content d-flex justify-content-between">
+                        <p class="menu-name text-uppercase font-weight-bold">Price</p>
+                        <p class="menu-price">{{ object.price }}</p>
+                    </div>
+
+                    <div class="menu-content d-flex justify-content-between">
+                        <p class="menu-name text-uppercase font-weight-bold">Shipping Cost</p>
+                        <p class="menu-price">{{ object.shipping_cost }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--REFERENCE-->
+    <!--https://stackoverflow.com/questions/63189683/bootstrap-4-flexbox-image-on-the-left-and-text-on-the-right-->
+    <!-- End here and for the second data-->
+    <hr/>
+    
+    <div class="container">
+        <div class="row no-gutters">
+            <!-- Image position -->
+            <div class="col-md">
+                <div class="menu-image h-100 d-flex align-items-start">
+                    <img src="{{ object.photo.url }}" alt="{{ object.name }}" class="img-fluid">
+                </div>
+            </div>
+            <!-- End Image position -->
+            <div class="col-md">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Manfacturer</th>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>Shipping Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ object.manufacturer }}</td>
+                            <td>{{ object.name }}</td>
+                            <td>{{ object.quantity }}</td>
+                            <td>{{ object.description }}</td>
+                            <td>{{ object.price }}</td>
+                            <td>{{ object.shipping_cost }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+
+<!-- 
+{% if title == source %}
+    Do This
+{% elif title == value %}
+    Do This
+{% else %}
+    Do This
+{% endif %}
+-->
